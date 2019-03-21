@@ -6,7 +6,14 @@ class ChannelNavLink extends Component {
     const { channel } = this.props;
     return (
       <div className="row">
-        <div className="col-12 my-1">
+        <div
+          className="col-12 my-1"
+          style={{
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+            textOverflow: "ellipsis"
+          }}
+        >
           <Link to={`/channels/${channel.id}`}>
             <span># </span> {channel.name}
           </Link>

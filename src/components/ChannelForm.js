@@ -21,6 +21,7 @@ class ChannelForm extends Component {
   };
 
   render() {
+    const errors = this.props.errors;
     return (
       <div className="row my-4">
         <div className="col-12 text-center">
@@ -31,15 +32,18 @@ class ChannelForm extends Component {
               <form onSubmit={this.submitChannel}>
                 <div className="form-group">
                   <input
-                    className="form-control"
+                    className={`form-control ${errors.name && "is-invalid"}`}
                     type="text"
                     placeholder="Channel Name"
                     name="name"
                     onChange={this.textChangeHandler}
-                    maxlength="15"
+                    maxLength="15"
                     minLength="3"
                   />
-                  <i class="sicon-user text-muted text-bottom" />
+                  <i className="siconUser textMuted textBottom" />
+                  <div className="invalid-feedback text-left">
+                    {errors.name}
+                  </div>
                 </div>
 
                 <div className="form-group my-4 ">
@@ -65,6 +69,12 @@ class ChannelForm extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    errors: state.errors
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     postChannel: (newCh, history) =>
@@ -73,6 +83,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(ChannelForm);

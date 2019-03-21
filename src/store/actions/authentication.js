@@ -53,10 +53,14 @@ export const login = (userData, history) => {
       let decodedUser = jwt_decode(token);
       setAuthToken(token);
       dispatch(setCurrentUser(decodedUser));
+      dispatch({
+        type: actionTypes.SET_ERRORS,
+        payload: {}
+      });
       // make sure to passe the history obj to the func
       history.push("/welcome");
     } catch (error) {
-      dispatch(setErrors(error));
+      dispatch(setErrors(error.response.data));
       console.error(error.response.data);
     }
   };
@@ -70,10 +74,14 @@ export const signup = (userData, history) => {
       let decodedUser = jwt_decode(token);
       setAuthToken(token);
       dispatch(setCurrentUser(decodedUser));
+      dispatch({
+        type: actionTypes.SET_ERRORS,
+        payload: {}
+      });
       // make sure to passe the history obj to the func
       history.push("/private");
     } catch (error) {
-      dispatch(setErrors(error));
+      dispatch(setErrors(error.response.data));
       console.error(error.response.data);
     }
   };

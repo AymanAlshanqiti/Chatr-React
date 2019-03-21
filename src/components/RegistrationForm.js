@@ -27,6 +27,8 @@ class RegistationForm extends Component {
   };
 
   render() {
+    const errors = this.props.errors;
+
     const urlType = this.props.match.url.substring(1);
 
     return (
@@ -36,27 +38,39 @@ class RegistationForm extends Component {
           <h1>Slack Me</h1>
         </div>
         <div className="col-12">
-          <div className="card mx-auto p-0 mt-5 form-format my-4">
-            <div className="card-body my-3">
+          <div className="card mx-auto p-0 mt-3 form-format my-4">
+            <div className="card-body mb-3">
               <form onSubmit={this.submitHandler}>
                 <div className="form-group">
                   <input
-                    className="form-control"
+                    className={`form-control ${errors.username &&
+                      "is-invalid"} ${errors.non_field_errors && "is-invalid"}`}
                     type="text"
                     placeholder="Username"
                     name="username"
                     onChange={this.changeHandler}
                   />
-                  <i class="sicon-user text-muted text-bottom" />
+                  <i className="siconUser textMuted textBottom" />
+                  <div className="invalid-feedback text-left">
+                    {errors.username}
+                  </div>
+                  <div className="invalid-feedback text-left">
+                    {errors.non_field_errors}
+                  </div>
                 </div>
                 <div className="form-group my-4 ">
                   <input
-                    className="form-control form-field-format"
+                    className={`form-control form-field-format ${errors.password &&
+                      "is-invalid"} ${errors.non_field_errors && "is-invalid"}`}
                     type="password"
                     placeholder="Password"
                     name="password"
                     onChange={this.changeHandler}
                   />
+                  <i className="siconUser textMuted textBottom" />
+                  <div className="invalid-feedback text-left">
+                    {errors.password}
+                  </div>
                 </div>
                 <input
                   className="btn btn-light btn-block button-color"
@@ -83,16 +97,24 @@ class RegistationForm extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    errors: state.errors
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     login: (userData, history) =>
       dispatch(actionCreators.login(userData, history)),
     signup: (userData, history) =>
-      dispatch(actionCreators.signup(userData, history))
+      dispatch(actionCreators.signup(userData, history)),
+
+    reSetErrors: () => dispatch(actionCreators.reSetErrors)
   };
 };
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(RegistationForm);

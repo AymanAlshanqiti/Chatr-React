@@ -17,15 +17,15 @@ import SearchBar from "../SearchBar";
 
 class SideNav extends React.Component {
   componentDidMount() {
-    console.log("SideNav => componentDidMount ")
+    console.log("SideNav => componentDidMount ");
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log("SideNav => componentDidUpdate ")
+    console.log("SideNav => componentDidUpdate ");
 
-    console.log("SideNav => prevProps: ", prevProps)
-    console.log("SideNav => thisProps: ", this.props)
-    if(prevProps.user !== this.props.user ) this.props.getAllChannels()
+    console.log("SideNav => prevProps: ", prevProps);
+    console.log("SideNav => thisProps: ", this.props);
+    if (prevProps.user !== this.props.user) this.props.getAllChannels();
   }
   render() {
     let user = this.props.user;
@@ -60,8 +60,7 @@ class SideNav extends React.Component {
             style={{
               width: "340px",
               maxWidth: "340px",
-              maxHeight: "340px",
-              wordBreak: "break-all" // Need to break the word using ... rether than just break it
+              maxHeight: "340px"
             }}
           >
             {user ? (
@@ -96,10 +95,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    filterChannels: (q) => dispatch(actionCreators.filterChannels(q)),
+    filterChannels: q => dispatch(actionCreators.filterChannels(q)),
     setChannelLoading: () => dispatch(actionCreators.setChannelLoading()), // We didn't use it
-    getAllChannels: () => dispatch(actionCreators.getAllChannels()),
-
+    getAllChannels: () => dispatch(actionCreators.getAllChannels())
   };
 };
 

@@ -1,5 +1,6 @@
 export const SET_CURRENT_USER = "SET_CURRENT_USER";
 export const SET_ERRORS = "SET_ERRORS";
+export const RESET_ERRORS = "RESET_ERRORS";
 
 export const GET_ALL_CHANNELS = "GET_ALL_CHANNELS";
 export const FILTER_CHANNELS = "FILTER_CHANNELS";
@@ -9,7 +10,6 @@ export const GET_CHANNEL_INFO = "GET_CHANNEL_INFO";
 export const GET_CHANNEL_MSGS = "GET_CHANNEL_MSGS";
 export const FILTER_MSGS = "FILTER_MSGS";
 export const REST_QUERY = "REST_QUERY";
-
 
 export const POST_MSG = "POST_MSG";
 

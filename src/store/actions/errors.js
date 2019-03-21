@@ -1,3 +1,13 @@
-import { SET_ERRORS } from "./actionTypes";
+import * as actionTypes from "./actionTypes";
 
-export const setErrors = errors => ({ type: SET_ERRORS, payload: errors });
+export const setErrors = errors => ({
+  type: actionTypes.SET_ERRORS,
+  payload: errors
+});
+
+export const reSetErrors = () => {
+  return {
+    type: actionTypes.RESET_ERRORS,
+    payload: {}
+  };
+};

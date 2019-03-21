@@ -49,6 +49,7 @@ const formatTimeS = ts => {
 };
 
 class ChannelBoard extends Component {
+
 	state = {
 		message: "",
 		played: false,
@@ -279,9 +280,11 @@ class ChannelBoard extends Component {
 				<div
 					className="col-5"
 					style={{
-						borderBottom: "1px solid #e7e7e7",
-						textOverflow: "ellipsis"
-					}}
+            borderBottom: "1px solid #e7e7e7",
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+            textOverflow: "ellipsis"
+          }}
 				>
 					<span>
 						{this.props.chInfo.image_url ? (
