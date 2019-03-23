@@ -5,11 +5,8 @@ import { connect } from "react-redux";
 class PrivateRoute extends Component {
   render() {
     const { component: Component, user, ...rest } = this.props;
-    console.log("zerodebug => PrivateRoute => this.props", this.props);
-    console.log(
-      "zerodebug => PrivateRoute => this.props.user",
-      this.props.user
-    );
+    
+    
     return (
       <Route
         {...rest}

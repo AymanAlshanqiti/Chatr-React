@@ -17,14 +17,14 @@ import SearchBar from "../SearchBar";
 
 class SideNav extends React.Component {
   componentDidMount() {
-    console.log("SideNav => componentDidMount ");
+    
   }
 
   componentDidUpdate(prevProps, prevState) {
-    console.log("SideNav => componentDidUpdate ");
+    
 
-    console.log("SideNav => prevProps: ", prevProps);
-    console.log("SideNav => thisProps: ", this.props);
+    
+    
     if (prevProps.user !== this.props.user) this.props.getAllChannels();
   }
   render() {

@@ -24,7 +24,7 @@ class App extends Component {
     
   }
   componentDidUpdate(prevProps, prevState) {
-    console.log("app => componentDidUpdate")
+    
   }
   render() {
     let user = this.props.user

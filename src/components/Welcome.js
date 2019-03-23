@@ -9,7 +9,7 @@ import { connect } from "react-redux";
 
 class Welcome extends Component {
   render() {
-    console.log("zerodebug => welcome => user:", this.props.user);
+    
     return (
       <header className="masthead my-4 d-flex">
         <div className="container  text-center my-auto z-1">
