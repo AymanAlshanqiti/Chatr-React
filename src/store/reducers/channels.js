@@ -59,7 +59,7 @@ const reducer = (state = initialState, action) => {
 
     case actionTypes.GET_CHANNEL_INFO:
       let chInfo = state.channelsObj.find(ch => ch.id === +action.payload);
-      console.log("actionTypes.GET_CHANNEL_INFO => chInfo: ", chInfo);
+      
       return {
         ...state,
         chInfo: chInfo
@@ -67,11 +67,11 @@ const reducer = (state = initialState, action) => {
 
     case actionTypes.FILTER_CHANNELS:
       let filteredCh = state.channelsObj.filter(ch => {
-        console.log("actionTypes.FILTER_CHANNELS => ch.name: ", ch);
+        
         return `${ch.name}`.toLowerCase().includes(action.payload);
       });
 
-      console.log("actionTypes.FILTER_CHANNELS => filteredCh: ", filteredCh);
+      
       return {
         ...state,
         filteredChannelsObj: filteredCh

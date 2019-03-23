@@ -16,7 +16,7 @@ class ChannelForm extends Component {
 
   submitChannel = event => {
     event.preventDefault();
-    console.log("zerodebug => submitChannel: ", this.state);
+    
     this.props.postChannel(this.state, this.props.history);
   };
 
